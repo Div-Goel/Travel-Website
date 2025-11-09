@@ -65,6 +65,38 @@
             }
         }
     });
+
+    // Smooth scroll for same-page hash links (e.g., #about-section)
+    $('a[href*="#"]:not([href="#"])').on('click', function (e) {
+        var href = $(this).attr('href');
+        try {
+            var url = new URL(href, window.location.href);
+            var currentPath = window.location.pathname.replace(/\/+$/, '');
+            var linkPath = url.pathname.replace(/\/+$/, '');
+            // Only intercept when the link points to this same page and has a hash
+            if (url.hash && linkPath === currentPath) {
+                var $target = $(url.hash);
+                if ($target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({ scrollTop: $target.offset().top }, 600, 'swing');
+                }
+            }
+        } catch (err) {
+            // Ignore malformed URLs
+        }
+    });
+
+    // If the page loads with a hash (e.g., index.html#about-section), animate to it
+    $(function () {
+        if (window.location.hash) {
+            var $targetOnLoad = $(window.location.hash);
+            if ($targetOnLoad.length) {
+                setTimeout(function () {
+                    $('html, body').animate({ scrollTop: $targetOnLoad.offset().top }, 600, 'swing');
+                }, 0);
+            }
+        }
+    });
     
 })(jQuery);
 
