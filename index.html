@@ -738,21 +738,22 @@
                             <h1 class="text-white m-0">Sign Up Now</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
+                            <form id="whatsappForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Your name"
-                                        required="required" />
+                                    <input type="text" class="form-control p-4" id="waName" placeholder="Your name" required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Your email"
-                                        required="required" />
+                                    <input type="email" class="form-control p-4" id="waEmail" placeholder="Your email" required />
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Select a destination</option>
-                                        <option value="1">Kedarkantha Summit</option>
-                                        <option value="2">Gaichwan Gaon</option>
-                                        <option value="3">Julota Campsite</option>
+                                    <input type="number" class="form-control p-4" id="waPhone" placeholder="Your phone number" required />
+                                </div>
+                                <div class="form-group">
+                                    <select class="custom-select px-4" id="waDestination" style="height: 47px;" required>
+                                        <option value="" selected>Select a destination</option>
+                                        <option value="Kedarkantha Summit">Kedarkantha Summit</option>
+                                        <option value="Gaichwan Gaon">Gaichwan Gaon</option>
+                                        <option value="Julota Campsite">Julota Campsite</option>
                                     </select>
                                 </div>
                                 <div>
@@ -1143,6 +1144,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+    // WhatsApp registration form handler
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('waName').value.trim();
+        var phone = document.getElementById('waPhone').value.trim();
+        var destination = document.getElementById('waDestination').value;
+        if (!name || !phone || !destination) {
+            alert('Please fill all required fields and select a destination.');
+            return;
+        }
+        var waNumber = '918884310111'; // WhatsApp number in international format, no +
+        var message = `Hi I am ${name}, with number ${phone} and I want to visit ${destination}, Kindly add me to your whatsaap group. Source - Through Website`;
+        var waUrl = `https://wa.me/${waNumber}?text=` + encodeURIComponent(message);
+        window.open(waUrl, '_blank');
+    });
+    </script>
 </body>
 
 </html>
