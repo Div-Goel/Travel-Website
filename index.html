@@ -578,6 +578,77 @@
     </section>
     <!-- Packages End -->
 
+
+    <!-- Image Gallery Start -->
+    <section id="gallery-section" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Gallery</h6>
+                <h1 class="mb-3">Our Trek Memories</h1>
+            </div>
+            <div class="position-relative">
+                <button class="gallery-arrow gallery-arrow-left btn btn-primary position-absolute" style="top: 50%; left: -30px; transform: translateY(-50%); z-index: 2; border-radius: 50%; width: 45px; height: 45px;">
+                    <span class="fa fa-chevron-left text-white"></span>
+                </button>
+                <div class="owl-carousel gallery-carousel owl-theme pb-3"></div>
+                <button class="gallery-arrow gallery-arrow-right btn btn-primary position-absolute" style="top: 50%; right: -30px; transform: translateY(-50%); z-index: 2; border-radius: 50%; width: 45px; height: 45px;">
+                    <span class="fa fa-chevron-right text-white"></span>
+                </button>
+                
+            </div>
+        </div>
+        <style>
+        /* Remove old scroll styles, Owl Carousel handles scroll */
+        .gallery-carousel .gallery-img-spacing {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            margin: 0 !important;
+        }
+        /* Fixed-height gallery: height-driven scaling for all images so their
+           true width is preserved. Portraits will appear narrow; landscapes
+           will be wide. */
+        .gallery-img-card {
+            overflow: hidden;
+            border-radius: 6px;
+            background: #f6f6f6;
+            position: relative;
+            height: 420px; /* fixed row height */
+        }
+        /* Responsive height adjustments */
+        @media (max-width: 992px) {
+            .gallery-img-card { height: 360px; }
+        }
+        @media (max-width: 576px) {
+            .gallery-img-card { height: 240px; }
+        }
+        /* Stronger rules to override Bootstrap image helpers so landscape images
+           fill the card area without being squeezed. Keep aspect ratio and center-crop. */
+        .gallery-carousel .gallery-img-card .gallery-img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: none !important;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        /* Slightly shorter cards on very small screens */
+        @media (max-width: 576px) {
+            .gallery-img-card { height: 200px; }
+        }
+        /* Background element used when we render images as backgrounds.
+           Use height-driven scaling for all images: `auto 100%` keeps true width. */
+        .gallery-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-size: auto 100%; /* scale by height */
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        </style>
+    </section>
+
     <!-- Package Detail Modals -->
     <!-- Modal: Package 1 (6 Days) -->
     <div class="modal fade" id="modalPackage1" tabindex="-1" role="dialog" aria-labelledby="modalPackage1Label"
@@ -1144,6 +1215,80 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Gallery Owl Carousel Init (moved here to ensure DOM and scripts loaded) -->
+    <script>
+    $(function(){
+        var $gallery = $(".gallery-carousel");
+        // Preload all images, compute scaled widths using card height, append items
+        // with that width so placeholders match the final size. Initialize Owl
+        // only after processing all images to avoid layout shifts.
+        var total = 82;
+        var processed = 0;
+        var fixedHeight = parseInt($('.gallery-img-card').css('height')) || 420;
+        for (var i = 1; i <= total; i++) {
+            (function(index){
+                var url = 'img/i' + index + '.jpeg';
+                var img = new Image();
+                img.onload = function() {
+                    // compute scaled width to preserve true width given fixed height
+                    var scaledWidth = Math.round((img.naturalWidth / img.naturalHeight) * fixedHeight);
+                    var $item = $(
+                        "<div class='card border-0 shadow-sm gallery-img-card gallery-img-spacing' style='width:" + scaledWidth + "px;'>" +
+                            "<div class='gallery-bg' aria-hidden='true'></div>" +
+                        "</div>"
+                    );
+                    // tag orientation (kept for styling if needed)
+                    if (img.naturalWidth < img.naturalHeight) $item.addClass('portrait'); else $item.addClass('landscape');
+                    $item.find('.gallery-bg').css({
+                        'background-image': 'url(' + url + ')',
+                        'background-size': 'auto 100%',
+                        'background-position': 'center center',
+                        'background-repeat': 'no-repeat'
+                    });
+                    $gallery.append($item);
+                    processed++;
+                    if (processed === total) {
+                        initGallery();
+                    }
+                };
+                img.onerror = function() {
+                    processed++;
+                    if (processed === total) {
+                        initGallery();
+                    }
+                };
+                img.src = url;
+            })(i);
+        }
+
+        function initGallery() {
+            $gallery.owlCarousel({
+                loop:true,
+                margin:20,
+                nav:false,
+                dots:false,
+                autoplay:true,
+                autoplayTimeout:2000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    900:{ items:3 },
+                    1200:{ items:4 }
+                },
+                autoWidth:true
+            });
+            // Arrow controls
+            $('.gallery-arrow-left').click(function() {
+                $gallery.trigger('prev.owl.carousel');
+            });
+            $('.gallery-arrow-right').click(function() {
+                $gallery.trigger('next.owl.carousel');
+            });
+        }
+    });
+    </script>
     <script>
     // Reusable WhatsApp form handler
     function handleWhatsAppForm(formId, getMessage) {
