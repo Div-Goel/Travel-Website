@@ -62,19 +62,19 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="http://facebook.com/trekhinyu">
+                        <a class="text-primary px-3" href="https://facebook.com/trekhinyu">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="text-primary px-3" href="http://twitter.com/trekhinyu">
+                        <a class="text-primary px-3" href="https://twitter.com/trekhinyu">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <!-- <a class="text-primary px-3" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a> -->
-                        <a class="text-primary px-3" href="http://instagram.com/trekhinyu">
+                        <a class="text-primary px-3" href="https://wa.me/+918884310111">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a class="text-primary px-3" href="https://instagram.com/trekhinyu">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-primary pl-3" href="http://youtube.com/@trekhinyu">
+                        <a class="text-primary pl-3" href="https://youtube.com/@trekhinyu">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -112,7 +112,7 @@
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
                             </div>
                         </div>
-                        <a href="index.html#contact-section" class="nav-item nav-link">Contact</a>
+                        <a href="index.html#contact-section" class="nav-item nav-link">Contact Us</a>
                     </div>
                 </div>
             </nav>
@@ -1052,12 +1052,12 @@
                 <p>Touch the Raw Himalayas</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="http://twitter.com/trekhinyu"><i
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/trekhinyu"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://facebook.com/trekhinyu"><i
                             class="fab fa-facebook-f"></i></a>
-                    <!-- <a class="btn btn-outline-primary btn-square mr-2" href="https://linkedin.com/company/trekhinyu"><i class="fab fa-linkedin-in"></i></a> -->
-                    <a class="btn btn-outline-primary btn-square" href="http://youtube.com/@trekhinyu"><i
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://wa.me/+918884310111"><i class="fab fa-whatsapp"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://instagram.com/trekhinyu"><i
                             class="fab fa-instagram"></i></a>
                     <a class="btn btn-outline-primary btn-square ml-2" href="https://youtube.com/trekhinyu"><i
                             class="fab fa-youtube"></i></a>
@@ -1145,20 +1145,43 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-    // WhatsApp registration form handler
-    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+    // Reusable WhatsApp form handler
+    function handleWhatsAppForm(formId, getMessage) {
+        var form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var waNumber = '918884310111'; // WhatsApp number in international format, no +
+            var message = getMessage();
+            if (!message) return;
+            var waUrl = `https://wa.me/${waNumber}?text=` + encodeURIComponent(message);
+            window.open(waUrl, '_blank');
+        });
+    }
+
+    // Registration form WhatsApp handler
+    handleWhatsAppForm('whatsappForm', function() {
         var name = document.getElementById('waName').value.trim();
         var phone = document.getElementById('waPhone').value.trim();
         var destination = document.getElementById('waDestination').value;
         if (!name || !phone || !destination) {
             alert('Please fill all required fields and select a destination.');
-            return;
+            return '';
         }
-        var waNumber = '918884310111'; // WhatsApp number in international format, no +
-        var message = `Hi I am ${name}, with number ${phone} and I want to visit ${destination}, Kindly add me to your whatsaap group. Source - Through Website`;
-        var waUrl = `https://wa.me/${waNumber}?text=` + encodeURIComponent(message);
-        window.open(waUrl, '_blank');
+        return `Hi I am ${name}, with number ${phone} and I want to visit ${destination}, Kindly add me to your whatsapp group. Source - Through Website`;
+    });
+
+    // Contact form WhatsApp handler
+    handleWhatsAppForm('contactForm', function() {
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var subject = document.getElementById('subject').value.trim();
+        var messageText = document.getElementById('message').value.trim();
+        if (!name || !email || !subject || !messageText) {
+            alert('Please fill all required fields.');
+            return '';
+        }
+        return `Hi, I am ${name} (${email}). Subject: ${subject}. Message: ${messageText} Source - Through Website`;
     });
     </script>
 </body>
