@@ -51,6 +51,12 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Navbar brand small logo */
+        .navbar-brand.d-flex .brand-logo { height: 36px; width: auto; margin-right: 10px; display: inline-block; }
+        @media (max-width: 576px) { .navbar-brand.d-flex .brand-logo { height: 28px; margin-right: 8px; } }
+    </style>
 </head>
 
 <body>
@@ -94,7 +100,8 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="" class="navbar-brand d-flex align-items-center">
+                    <img src="img/favicon.png" alt="TrekAura" class="brand-logo" />
                     <h1 class="m-0 text-primary"><span class="text-dark">Trek</span>Aura</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -167,6 +174,68 @@
     </div>
     <!-- Carousel End -->
 
+    <!-- Booking Start -->
+    <div class="container-fluid booking mt-5 pb-5">
+        <div class="container pb-5">
+            <div class="bg-light shadow" style="padding: 30px;">
+                <div class="row align-items-center" style="min-height: 60px;">
+                    <div class="col-md-4">
+                        <div class="mb-3 mb-md-0">
+                            <label class="sr-only" for="bookingDestination">Destination</label>
+                            <select id="bookingDestination" class="custom-select px-4" style="height: 47px;">
+                                <option selected disabled>Select Destination</option>
+                                <option value="Gaichwan Gaon">Gaichwan Gaon</option>
+                                <option value="Julota Campsite">Julota Campsite</option>
+                                <option value="Kedarkantha Summit">Kedarkantha Summit</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="mb-3 mb-md-0">
+                            <h5 class="mb-2">Upcoming Departure Dates</h5>
+                            <label class="sr-only" for="departDate">Upcoming Departure Date</label>
+                            <input id="departDate" type="text" class="form-control p-4"
+                                placeholder="Select an upcoming departure date" readonly />
+                            <input id="departDateValue" type="hidden" name="departDate" />
+
+                            <!-- monthly calendar preview -->
+                            <div id="bookingCalendar" class="mt-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 d-flex align-items-center">
+                        <button id="bookingSubmitBtn" class="btn btn-success btn-block"
+                            style="height: 47px;">Submit</button>
+                    </div>
+                    <!-- Commented out: return date, duration, submit as requested -->
+                    <!--
+                    <div class="col-md-3">
+                        <div class="mb-3 mb-md-0">
+                            <div class="date" id="date2" data-target-input="nearest">
+                                <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 mb-md-0">
+                            <select class="custom-select px-4" style="height: 47px;">
+                                <option selected>Duration</option>
+                                <option value="1">Duration 1</option>
+                                <option value="2">Duration 1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Submit</button>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking End -->
+
     <!-- Packages Start -->
     <section id="package-section">
         <div class="container-fluid py-5">
@@ -206,7 +275,7 @@
                     <!-- Package 3: 4 Days Adventure -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
-                            <img class="img-fluid" src="img/change2.jpeg" alt="Kedarkantha Adventure">
+                            <img class="img-fluid" src="img/package2.jpeg" alt="Kedarkantha Adventure">
                             <div class="p-4">
                                 <a class="h5 text-decoration-none" href="#" data-toggle="modal"
                                     data-target="#modalPackage1" role="button">Kedarkantha Trek</a>
@@ -321,58 +390,6 @@
         </style>
     </section>
     <!-- Image Gallery End -->
-
-    <!-- Booking Start -->
-    <!-- <div class="container-fluid booking mt-5 pb-5">
-        <div class="container pb-5">
-            <div class="bg-light shadow" style="padding: 30px;">
-                <div class="row align-items-center" style="min-height: 60px;">
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Destination</option>
-                                        <option value="1">Destination 1</option>
-                                        <option value="2">Destination 1</option>
-                                        <option value="3">Destination 1</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Duration</option>
-                                        <option value="1">Duration 1</option>
-                                        <option value="2">Duration 1</option>
-                                        <option value="3">Duration 1</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Booking End -->
 
 
     <!-- Service Start -->
@@ -627,7 +644,7 @@
                     We believe trekking isn't just about snow or summits, it's about touching nature in its
                     raw form, connecting with local life, and discovering the Himalayas away from the crowd.</p>
                 <div class="row mb-4">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <img class="img-fluid" src="img/6.png" alt="">
                     </div>
                     <div class="col-6">
@@ -1336,6 +1353,221 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Booking calendar logic: show only future dates, color week availability -->
+    <script>
+        (function () {
+            // Config: base date to start alternating weeks (15th December of current year)
+            var base = moment([moment().year(), 11, 15]); // month index 11 = December
+            var today = moment().startOf('day');
+            var calendarRoot = document.getElementById('bookingCalendar');
+            var displayInput = document.getElementById('departDate');
+            var hiddenInput = document.getElementById('departDateValue');
+
+            // number of weeks to show
+            var monthsToShow = 3;
+
+            function weekIsAvailable(d) {
+                // compute difference in ISO week number from base; alternate availability
+                var diff = d.isoWeek() - base.isoWeek() + (d.isoWeekYear() - base.isoWeekYear()) * 52;
+                return (diff % 2) === 0; // even => available (green)
+            }
+
+            function renderCalendar() {
+                if (!calendarRoot) return;
+                calendarRoot.innerHTML = '';
+                var startMonth = today.clone().startOf('month');
+
+                var wrapper = document.createElement('div');
+                wrapper.className = 'booking-months-wrapper';
+
+                for (var m = 0; m < monthsToShow; m++) {
+                    var month = startMonth.clone().add(m, 'months');
+                    var monthDiv = document.createElement('div');
+                    monthDiv.className = 'booking-month';
+
+                    var header = document.createElement('div');
+                    header.className = 'booking-month-header';
+                    header.textContent = month.format('MMMM YYYY');
+                    monthDiv.appendChild(header);
+
+                    var weekdays = document.createElement('div');
+                    weekdays.className = 'booking-weekdays';
+                    var wd = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                    wd.forEach(function (w) { var el = document.createElement('div'); el.className = 'booking-weekday'; el.textContent = w; weekdays.appendChild(el); });
+                    monthDiv.appendChild(weekdays);
+
+                    var daysGrid = document.createElement('div');
+                    daysGrid.className = 'booking-days-grid';
+
+                    var firstDayWeekday = month.clone().startOf('month').isoWeekday(); // 1..7
+                    var leading = firstDayWeekday - 1; // blanks before first day
+                    for (var i = 0; i < leading; i++) {
+                        var blank = document.createElement('div'); blank.className = 'booking-day blank'; daysGrid.appendChild(blank);
+                    }
+
+                    var daysInMonth = month.daysInMonth();
+                    for (var d = 1; d <= daysInMonth; d++) {
+                        (function (day) {
+                            var dt = month.clone().date(day);
+                            var cell = document.createElement('div');
+                            cell.className = 'booking-day';
+                            cell.textContent = day;
+                            if (dt.isBefore(today, 'day')) {
+                                cell.classList.add('disabled');
+                            } else {
+                                var avail = weekIsAvailable(dt);
+                                cell.classList.add(avail ? 'available' : 'unavailable');
+                                if (avail) {
+                                    cell.addEventListener('click', function () {
+                                        displayInput.value = dt.format('YYYY-MM-DD');
+                                        hiddenInput.value = dt.format();
+                                        // clear previous
+                                        wrapper.querySelectorAll('.booking-day.selected').forEach(function (el) { el.classList.remove('selected'); });
+                                        cell.classList.add('selected');
+                                    });
+                                }
+                            }
+                            daysGrid.appendChild(cell);
+                        })(d);
+                    }
+
+                    monthDiv.appendChild(daysGrid);
+                    wrapper.appendChild(monthDiv);
+                }
+
+                calendarRoot.appendChild(wrapper);
+            }
+
+            // initial render
+            renderCalendar();
+
+            // small helper: re-render at midnight in case day changes
+            var msUntilMidnight = moment().endOf('day').diff(moment()) + 2000;
+            setTimeout(function () { renderCalendar(); }, msUntilMidnight);
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('bookingSubmitBtn');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var destEl = document.getElementById('bookingDestination');
+                var dest = destEl ? destEl.value : '';
+                var date = (document.getElementById('departDateValue') && document.getElementById('departDateValue').value) || (document.getElementById('departDate') && document.getElementById('departDate').value);
+                if (!dest || dest === 'Select Destination') { alert('Please select a destination.'); return; }
+                if (!date) { alert('Please select a departure date.'); return; }
+                var waNumber = '918884310111';
+                var message = 'Hi I want to go to ' + dest + ' on ' + date;
+                var url = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(message);
+                window.open(url, '_blank');
+            });
+        })();
+    </script>
+
+    <style>
+        /* Booking calendar (monthly) styles */
+        .booking-months-wrapper {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 6px 2px;
+        }
+
+        .booking-month {
+            min-width: 260px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .booking-month-header {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .booking-weekdays {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .booking-weekday {
+            width: calc(100% / 7);
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .booking-days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .booking-day {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .booking-day.blank {
+            background: transparent;
+            cursor: default;
+        }
+
+        .booking-day.disabled {
+            background: #f5f5f5;
+            color: #aaa;
+            cursor: default;
+        }
+
+        .booking-day.available {
+            background: #e9f7ee;
+            border: 1px solid #bfeccf;
+            color: #1b5e20;
+        }
+
+        .booking-day.available:hover {
+            background: #7AB730;
+            color: #fff;
+        }
+
+        .booking-day.unavailable {
+            background: #fff5f5;
+            border: 1px solid #f3c0c0;
+            color: #8a1f1f;
+            cursor: not-allowed;
+        }
+
+        .booking-day.selected {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+        }
+
+        #bookingCalendar {
+            max-width: 100%;
+        }
+
+        @media (max-width:576px) {
+            .booking-month {
+                min-width: 200px;
+            }
+
+            .booking-weekday {
+                font-size: 11px;
+            }
+        }
+    </style>
 
     <!-- Gallery Owl Carousel Init (moved here to ensure DOM and scripts loaded) -->
     <script>
