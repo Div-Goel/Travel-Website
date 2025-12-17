@@ -54,8 +54,19 @@
 
     <style>
         /* Navbar brand small logo */
-        .navbar-brand.d-flex .brand-logo { height: 36px; width: auto; margin-right: 10px; display: inline-block; }
-        @media (max-width: 576px) { .navbar-brand.d-flex .brand-logo { height: 28px; margin-right: 8px; } }
+        .navbar-brand.d-flex .brand-logo {
+            height: 36px;
+            width: auto;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand.d-flex .brand-logo {
+                height: 28px;
+                margin-right: 8px;
+            }
+        }
     </style>
 </head>
 
@@ -242,16 +253,15 @@
             <div class="container pt-5 pb-3">
                 <div class="text-center mb-3 pb-3">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Packages</h6>
-                    <h1>Pefect Tour Packages</h1>
+                    <h1>Perfect Tour Packages</h1>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <!-- Package 1: 6 Days Full Trek -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <img class="img-fluid" src="img/11.png" alt="Kedarkantha Trek">
                             <div class="p-4">
-                                <a class="h5 text-decoration-none" href="#" data-toggle="modal"
-                                    data-target="#modalPackage1" role="button">Kedarkantha Trek</a>
+                                <a class="h5 text-decoration-none" href="package1.html">Kedarkantha Trek (6 Days)</a>
                                 <br><br>
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i
@@ -272,13 +282,12 @@
                         </div>
                     </div>
 
-                    <!-- Package 3: 4 Days Adventure -->
+                    <!-- Package 2: 4 Days Adventure -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <img class="img-fluid" src="img/package2.jpeg" alt="Kedarkantha Adventure">
                             <div class="p-4">
-                                <a class="h5 text-decoration-none" href="#" data-toggle="modal"
-                                    data-target="#modalPackage1" role="button">Kedarkantha Trek</a>
+                                <a class="h5 text-decoration-none" href="package2.html">Kedarkantha Trek (4 Days)</a>
                                 <br><br>
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i
@@ -782,135 +791,7 @@
     <!-- Packages and Gallery moved above carousel -->
 
 
-    <!-- Package Detail Modals -->
-    <!-- Modal: Package 1 (6 Days) -->
-    <div class="modal fade" id="modalPackage1" tabindex="-1" role="dialog" aria-labelledby="modalPackage1Label"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="modalPackage1Label">Kedarkantha Trek - 6 Day Itinerary</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <span class="badge badge-pill badge-primary mr-2">Duration: 6 Days</span>
-                        <span class="badge badge-pill badge-success mr-2">Price: ₹7,999/-</span>
-                        <span class="badge badge-pill badge-warning">Rating: ⭐ 4.9 (100 reviews)</span>
-                    </div>
-                    <p class="font-weight-bold">Discover the complete beauty of Kedarkantha with our 6-day trek</p>
-                    <h6 class="text-primary mt-4">ITINERARY FOR KEDARKANTHA TREK FROM GAICHWAN GAON</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><strong>DAY 1:</strong> Drive from Dehradun to Gaichwan Gaon<br><small>Drive
-                                Distance: 180-200 km | Duration: 6-7 hours | Start: 6:30 AM<br>Pickup from Prince Chowk,
-                                Dehradun. Scenic mountain drive to Gaichwan Gaon.</small></li>
-                        <li class="mb-3"><strong>DAY 2:</strong> Gaichwan Gaon → Julota<br><small>Trek: 7 km | 6-7 hours
-                                | Altitude Gain: 5600 ft → 8950 ft<br>Trail through oak & pine forests with panoramic
-                                snow range views.</small></li>
-                        <li class="mb-3"><strong>DAY 3:</strong> Julota → Lower Pukhrola<br><small>Trek: 4 km | 3-4
-                                hours | Altitude Gain: 8950 ft → 10800 ft<br>Gradual ascent via alpine meadows; camp
-                                under clear skies.</small></li>
-                        <li class="mb-3"><strong>DAY 4:</strong> Pukhrola → Kedarkantha Summit → Akhoti Thach /
-                            Julota<br><small>Trek: 10 km (3 km ascent + 7 km descent) | 7-8 hours<br>Summit (12,500 ft)
-                                for sunrise; long scenic descent.</small></li>
-                        <li class="mb-3"><strong>DAY 5:</strong> Akhoti Thach / Julota → Gaichwan Gaon<br><small>Trek: 7
-                                km | 6-7 hours | Altitude Loss: 8950 ft → 5600 ft<br>Return via serene forest & village
-                                trails.</small></li>
-                        <li class="mb-3"><strong>DAY 6:</strong> Drive back to Dehradun<br><small>Drive: 180-200 km |
-                                6-7 hours | Drop at ISBT/Railway Station.</small></li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="tel: +91-8884310111" class="btn btn-primary" data-dismiss="modal">Enquire / Book</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Package 2 (4 Days) -->
-    <div class="modal fade" id="modalPackage2" tabindex="-1" role="dialog" aria-labelledby="modalPackage2Label"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="modalPackage2Label">Kedarkantha Trail - 4 Day Itinerary</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <span class="badge badge-pill badge-primary mr-2">Duration: 4 Days</span>
-                        <span class="badge badge-pill badge-success mr-2">Price: ₹6,499/-</span>
-                        <span class="badge badge-pill badge-warning">Rating: ⭐ 4.9 (89 reviews)</span>
-                    </div>
-                    <p class="font-weight-bold">Experience the best of Kedarkantha with this balanced 4-day trek</p>
-                    <h6 class="text-primary mt-4">ITINERARY FOR KEDARKANTHA TRAIL FROM GAICHWAN GAON</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><strong>DAY 1:</strong> Drive from Dehradun to Gaichwan Gaon<br><small>Drive:
-                                180 km | 6-7 hours | Start: 6:30 AM<br>Pickup from Prince Chowk; scenic Mussoorie hill
-                                drive.</small></li>
-                        <li class="mb-3"><strong>DAY 2:</strong> Gaichwan Gaon → Julota → Lower Pukhrola<br><small>Trek:
-                                10-11 km | 6-7 hours | Altitude Gain: 5600 ft → 10800 ft<br>Forest & ridge walk to
-                                panoramic Pukhrola campsite.</small></li>
-                        <li class="mb-3"><strong>DAY 3:</strong> Pukhrola → Kedarkantha Summit → Julota<br><small>Trek:
-                                10 km | 7-8 hours | Peak: 12,500 ft<br>Sunrise summit and descent to forest
-                                camp.</small></li>
-                        <li class="mb-3"><strong>DAY 4:</strong> Julota → Gaichwan Gaon → Drive to
-                            Dehradun<br><small>Trek: 7 km | Drive: 6-7 hours | Return with Himalayan memories.</small>
-                        </li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="tel: +91-8884310111" class="btn btn-primary" data-dismiss="modal">Enquire / Book</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Package 3 (3 Days) -->
-    <div class="modal fade" id="modalPackage3" tabindex="-1" role="dialog" aria-labelledby="modalPackage3Label"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="modalPackage3Label">Kedarkantha Escape - 3 Day Itinerary</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <span class="badge badge-pill badge-primary mr-2">Duration: 3 Days</span>
-                        <span class="badge badge-pill badge-success mr-2">Price: ₹4,999/-</span>
-                        <span class="badge badge-pill badge-warning">Rating: ⭐ 4.8 (76 reviews)</span>
-                    </div>
-                    <p class="font-weight-bold">Perfect for weekend adventurers — a short yet thrilling Himalayan escape
-                    </p>
-                    <h6 class="text-primary mt-4">ITINERARY FOR KEDARKANTHA ESCAPE</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><strong>DAY 1:</strong> Dehradun → Gaichwan Gaon → Julota<br><small>Drive: 180
-                                km | 6-7 hours | Trek: 7 km | Altitude: 5600 ft → 8950 ft<br>Early start; scenic drive
-                                and trek to forest campsite.</small></li>
-                        <li class="mb-3"><strong>DAY 2:</strong> Julota → Kedarkantha Summit → Julota<br><small>Trek: 10
-                                km | 7 hours | Altitude: 8950 ft → 12,500 ft → 8950 ft<br>Summit sunrise, return to camp
-                                for rest.</small></li>
-                        <li class="mb-3"><strong>DAY 3:</strong> Julota → Gaichwan Gaon → Dehradun<br><small>Trek: 7 km
-                                | Drive: 6-7 hours | Evening arrival at Dehradun.</small></li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="tel: +91-8884310111" class="btn btn-primary" data-dismiss="modal">Enquire / Book</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Package Detail Modals -->
+    <!-- Package modals removed — packages now open standalone pages -->
 
 
     <!-- Registration Start -->
@@ -1274,7 +1155,7 @@
             </div>
             <div class="col-lg-6 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-6">
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white-50 mb-2" href="index.html"><i
