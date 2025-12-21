@@ -13,21 +13,30 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d6efd">
     <!-- Optional: set your canonical URL (replace with your live domain) -->
-    <!-- <link rel="canonical" href="https://your-domain.example/" /> -->
+    <!-- <link rel="canonical" href="https://trekaura.in" /> -->
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="TrekAura - Touch the Raw Himalayas">
     <meta property="og:description"
         content="Authentic treks to Kedarkantha with local guides and budget-friendly packages.">
     <!-- Replace with your absolute URL when available -->
-    <!-- <meta property="og:url" content="https://your-domain.example/" /> -->
+    <!-- <meta property="og:url" content="https://trekaura.in" /> -->
     <meta property="og:image" content="img/1.png">
+    <meta property="og:site_name" content="TrekAura">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:url" content="https://trekaura.in/">
+    <meta property="og:image:alt" content="TrekAura - Himalayan trekking and Kedarkantha packages">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TrekAura - Touch the Raw Himalayas">
     <meta name="twitter:description"
         content="Authentic treks to Kedarkantha with local guides and budget-friendly packages.">
     <meta name="twitter:image" content="img/1.png">
+    <meta name="twitter:site" content="@TrekAura">
+    <meta name="twitter:creator" content="@TrekAura">
+    <meta name="twitter:image:alt" content="TrekAura - Himalayan trekking and Kedarkantha packages">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
@@ -51,6 +60,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://trekaura.in/">
+    <!-- Custom Stylesheet -->
+    <link href="css/custom.css" rel="stylesheet">
 
     <style>
         /* Navbar brand small logo */
@@ -93,7 +106,7 @@
                         <a class="text-primary px-3" href="https://wa.me/+919690169183">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a class="text-primary px-3" href="https://instagram.com/uptopahad_">
+                        <a class="text-primary px-3" href="https://instagram.com/trekaura.in">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a class="text-primary pl-3" href="https://youtube.com/@TrekAura">
@@ -787,13 +800,6 @@
     <!-- Feature End -->
 
 
-
-    <!-- Packages and Gallery moved above carousel -->
-
-
-    <!-- Package modals removed — packages now open standalone pages -->
-
-
     <!-- Registration Start -->
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
         <div class="container py-5">
@@ -805,9 +811,9 @@
                     </div>
                     <p class="text-white">Stay Updated with TrekAura!
                         <br><br>
-                        Join our community of trekkers and travel enthusiasts! Subscribe to our newsletter to get
-                        updates on upcoming treks, travel tips, special offers, and stories from the mountains straight
-                        to your inbox.
+                        Join our whatsapp community of trekkers and travel enthusiasts to get updates on upcoming treks,
+                        travel tips, special offers, and stories from the mountains straight
+                        to your mobile.
                     </p>
                     <!-- <ul class="list-inline text-white m-0">
                         <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam
@@ -820,7 +826,7 @@
                 <div class="col-lg-5">
                     <div class="card border-0">
                         <div class="card-header bg-primary text-center p-4">
-                            <h1 class="text-white m-0">Sign Up Now</h1>
+                            <h1 class="text-white m-0">Join Now</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-white p-5">
                             <form id="whatsappForm">
@@ -833,8 +839,8 @@
                                         required />
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control p-4" id="waPhone"
-                                        placeholder="Your phone number" required />
+                                    <input type="tel" class="form-control p-4" id="waPhone"
+                                        placeholder="Your phone number" pattern="[0-9]{10}" maxlength="10" required />
                                 </div>
                                 <div class="form-group">
                                     <select class="custom-select px-4" id="waDestination" style="height: 47px;"
@@ -846,7 +852,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
+                                    <button class="btn btn-primary btn-block py-3" type="submit">Join Whatsapp Community
+                                        Now</button>
                                 </div>
                             </form>
                         </div>
@@ -1147,7 +1154,7 @@
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://wa.me/+919690169183"><i
                             class="fab fa-whatsapp"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="https://instagram.com/uptopahad_"><i
+                    <a class="btn btn-outline-primary btn-square" href="https://instagram.com/trekaura.in"><i
                             class="fab fa-instagram"></i></a>
                     <a class="btn btn-outline-primary btn-square ml-2" href="https://youtube.com/TrekAura"><i
                             class="fab fa-youtube"></i></a>
@@ -1346,109 +1353,6 @@
             });
         })();
     </script>
-
-    <style>
-        /* Booking calendar (monthly) styles */
-        .booking-months-wrapper {
-            display: flex;
-            gap: 18px;
-            overflow-x: auto;
-            padding: 6px 2px;
-        }
-
-        .booking-month {
-            min-width: 260px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .booking-month-header {
-            font-size: 14px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .booking-weekdays {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-        }
-
-        .booking-weekday {
-            width: calc(100% / 7);
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .booking-days-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 6px;
-        }
-
-        .booking-day {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .booking-day.blank {
-            background: transparent;
-            cursor: default;
-        }
-
-        .booking-day.disabled {
-            background: #f5f5f5;
-            color: #aaa;
-            cursor: default;
-        }
-
-        .booking-day.available {
-            background: #e9f7ee;
-            border: 1px solid #bfeccf;
-            color: #1b5e20;
-        }
-
-        .booking-day.available:hover {
-            background: #7AB730;
-            color: #fff;
-        }
-
-        .booking-day.unavailable {
-            background: #fff5f5;
-            border: 1px solid #f3c0c0;
-            color: #8a1f1f;
-            cursor: not-allowed;
-        }
-
-        .booking-day.selected {
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            border-radius: 8px;
-        }
-
-        #bookingCalendar {
-            max-width: 100%;
-        }
-
-        @media (max-width:576px) {
-            .booking-month {
-                min-width: 200px;
-            }
-
-            .booking-weekday {
-                font-size: 11px;
-            }
-        }
-    </style>
 
     <!-- Gallery Owl Carousel Init (moved here to ensure DOM and scripts loaded) -->
     <script>
