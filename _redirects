@@ -1,0 +1,11 @@
+# Netlify redirects: force canonical to https://trekaura.in
+# Redirect www and http variants to primary domain (preserves path)
+https://www.trekaura.in/* https://trekaura.in/:splat 301!
+http://www.trekaura.in/* https://trekaura.in/:splat 301!
+http://trekaura.in/* https://trekaura.in/:splat 301!
+
+# Redirect /index.html to root
+/index.html  /  301!
+
+# Optional: force remove trailing .html (uncomment if desired)
+# /:splat.html  /:splat  301!

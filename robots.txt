@@ -1,0 +1,20 @@
+yes# robots.txt for TrekAura
+# Created: 2025-12-21
+# Primary site: https://trekaura.in
+
+# Global rules
+User-agent: *
+# Block contact/mail endpoints and source files that should not be crawled
+Disallow: /mail/
+# Block raw source directories (SCSS, temp build dirs)
+Disallow: /scss/
+Disallow: /temp/
+
+# Allow everything else
+Allow: /
+
+# Helpful hints for crawlers
+Sitemap: https://trekaura.in/sitemap.xml
+Host: trekaura.in
+
+# Note: if you want to allow CSS/JS/images for rendering, avoid disallowing the lib/ or img/ folders.

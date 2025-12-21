@@ -1,0 +1,19 @@
+# Apache rewrite rules to canonicalize to https://trekaura.in
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect www to non-www (preserve https)
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Redirect /index.html to /
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # (Optional) Remove .html extensions - enable only if site supports it
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteRule ^([^\.]+)\.html$ /$1 [R=301,L]
+</IfModule>
