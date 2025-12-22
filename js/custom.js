@@ -10,9 +10,13 @@
             var monthsToShow = 3;
 
             function weekIsAvailable(d) {
-                // compute difference in ISO week number from base; alternate availability
-                var diff = d.isoWeek() - base.isoWeek() + (d.isoWeekYear() - base.isoWeekYear()) * 52;
-                return (diff % 2) === 0; // even => available (green)
+                 // compute difference in ISO week number from base; alternate availability
+                // var diff = d.isoWeek() - base.isoWeek() + (d.isoWeekYear() - base.isoWeekYear()) * 52;
+                // return (diff % 2) === 0; // even => available (green)
+
+                // Only Sundays are available. ISO weekday 7 === Sunday.
+                if (!d || typeof d.isoWeekday !== 'function') return false;
+                return d.isoWeekday() === 7;
             }
 
             function renderCalendar() {
