@@ -16,5 +16,3 @@ Allow: /
 # Helpful hints for crawlers
 Sitemap: https://trekaura.in/sitemap.xml
 Host: trekaura.in
-
-# Note: if you want to allow CSS/JS/images for rendering, avoid disallowing the lib/ or img/ folders.
